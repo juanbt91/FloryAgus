@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Casamiento Flor y Agus</string>
-    <string name="fragment_inicio_Faltan">Faltan</string>
+    <string name="fragment_inicio_Faltan">FALTAN</string>
+    <string name="fragment_inicio_textodias">DIAS</string>
+    <string name="fragment_inicio_textohoras">HORAS</string>
+    <string name="fragment_inicio_textominutos">MINUTOS</string>
+    <string name="fragment_inicio_textosegundos">SEGUNDOS</string>
 
 </resources>

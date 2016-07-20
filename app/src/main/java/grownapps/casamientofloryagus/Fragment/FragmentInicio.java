@@ -29,6 +29,11 @@ public class FragmentInicio extends android.support.v4.app.Fragment {
     private TextView textViewHoras;
     private TextView textViewMinutos;
     private TextView textViewSegundos;
+    private TextView textViewFaltan;
+    private TextView textViewTextoDias;
+    private TextView textViewTextoHoras;
+    private TextView textViewTextoMinutos;
+    private TextView textViewTextoSegundos;
 
     @Nullable
     @Override
@@ -61,11 +66,21 @@ public class FragmentInicio extends android.support.v4.app.Fragment {
         textViewMinutos = (TextView) vista.findViewById(R.id.fragment_inicio_textview_minutos);
         textViewHoras = (TextView) vista.findViewById(R.id.fragment_inicio_textview_horas);
         textViewDias = (TextView) vista.findViewById(R.id.fragment_inicio_textview_dias);
+        textViewFaltan = (TextView) vista.findViewById(R.id.fragment_inicio_textview_faltan);
+        textViewTextoDias = (TextView) vista.findViewById(R.id.fragment_inicio_textview_textodias);
+        textViewTextoHoras = (TextView) vista.findViewById(R.id.fragment_inicio_textview_textohoras);
+        textViewTextoMinutos = (TextView) vista.findViewById(R.id.fragment_inicio_textview_textominutos);
+        textViewTextoSegundos = (TextView) vista.findViewById(R.id.fragment_inicio_textview_textosegundos);
 
         textViewSegundos.setTypeface(digital_clock_font);
         textViewMinutos.setTypeface(digital_clock_font);
         textViewHoras.setTypeface(digital_clock_font);
         textViewDias.setTypeface(digital_clock_font);
+        textViewFaltan.setTypeface(digital_clock_font);
+        textViewTextoDias.setTypeface(digital_clock_font);
+        textViewTextoHoras.setTypeface(digital_clock_font);
+        textViewTextoMinutos.setTypeface(digital_clock_font);
+        textViewTextoSegundos.setTypeface(digital_clock_font);
 
         CountDownTimer countDown = new CountDownTimer(milliDiff,1000) {
 
