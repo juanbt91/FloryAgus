@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="fecha_dia">11</integer>
+    <integer name="fecha_mes">02</integer>
+    <!-- el mes empieza en enero=0, por lo tanto abril, por ejemplo, seria 3 -->
+    <integer name="fecha_ano">2017</integer>
+    <integer name="fecha_segundo">0</integer>
+    <integer name="fecha_minuto">0</integer>
+    <integer name="fecha_hora">20</integer>
+</resources>

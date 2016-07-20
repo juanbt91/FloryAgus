@@ -1,10 +1,5 @@
 <resources>
     <string name="app_name">Casamiento Flor y Agus</string>
-    <string name="fecha_dia">11</string>
-    <string name="fecha_mes">02</string>
-    <!-- el mes empieza en enero=0, por lo tanto abril, por ejemplo, seria 3 -->
-    <string name="fecha_ano">2017</string>
-    <string name="fecha_segundo">0</string>
-    <string name="fecha_minuto">0</string>
-    <string name="fecha_hora">20</string>
+    <string name="fragment_inicio_Faltan">Faltan</string>
+
 </resources>
