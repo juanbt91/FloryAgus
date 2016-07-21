@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">Casamiento Flor y Agus</string>
+    <string name="facebook_app_id">1114828625222795</string>
+
+    <string name="activity_login_bienvenidos">Bienvenidos a la app del casamiento de Flor y Agus</string>
+
     <string name="fragment_inicio_Faltan">FALTAN</string>
     <string name="fragment_inicio_textodias">DIAS</string>
     <string name="fragment_inicio_textohoras">HORAS</string>
     <string name="fragment_inicio_textominutos">MINUTOS</string>
     <string name="fragment_inicio_textosegundos">SEGUNDOS</string>
+
 
 </resources>
