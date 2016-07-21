@@ -42,6 +42,7 @@ public class FragmentInicio extends android.support.v4.app.Fragment {
         View vista = inflater.inflate(R.layout.fragment_inicio, container, false);
 
         Resources res = getResources();
+
         int segundo = res.getInteger(R.integer.fecha_segundo);
         int minuto = res.getInteger(R.integer.fecha_minuto);
         int hora = res.getInteger(R.integer.fecha_hora);
@@ -50,7 +51,7 @@ public class FragmentInicio extends android.support.v4.app.Fragment {
         int ano = res.getInteger(R.integer.fecha_ano);
 
         Time conferenceTime = new Time(Time.getCurrentTimezone());
-        conferenceTime.set(segundo,minuto,hora,dia,mes,ano);
+        conferenceTime.set(segundo, minuto, hora, dia, mes, ano);
         conferenceTime.normalize(true);
         long confMillis = conferenceTime.toMillis(true);
 
@@ -82,14 +83,14 @@ public class FragmentInicio extends android.support.v4.app.Fragment {
         textViewTextoMinutos.setTypeface(digital_clock_font);
         textViewTextoSegundos.setTypeface(digital_clock_font);
 
-        CountDownTimer countDown = new CountDownTimer(milliDiff,1000) {
+        CountDownTimer countDown = new CountDownTimer(milliDiff, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
-                textViewSegundos.setText(""+TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)%(60));
-                textViewMinutos.setText(""+TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)%(60));
-                textViewHoras.setText(""+TimeUnit.MILLISECONDS.toHours(millisUntilFinished)%(24));
-                textViewDias.setText(""+TimeUnit.MILLISECONDS.toDays(millisUntilFinished));
+                textViewSegundos.setText("" + TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) % (60));
+                textViewMinutos.setText("" + TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) % (60));
+                textViewHoras.setText("" + TimeUnit.MILLISECONDS.toHours(millisUntilFinished) % (24));
+                textViewDias.setText("" + TimeUnit.MILLISECONDS.toDays(millisUntilFinished));
             }
 
             @Override
@@ -97,8 +98,10 @@ public class FragmentInicio extends android.support.v4.app.Fragment {
             }
         };
         countDown.start();
-        
+
         return vista;
 
+        //ME FALTA BAJARME EL PAQUETE DE FACEBOOK CREO!
 
+    }
 }
