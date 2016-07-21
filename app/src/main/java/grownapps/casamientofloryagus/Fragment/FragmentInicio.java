@@ -100,5 +100,5 @@ public class FragmentInicio extends android.support.v4.app.Fragment {
         
         return vista;
 
-    }
+
 }
