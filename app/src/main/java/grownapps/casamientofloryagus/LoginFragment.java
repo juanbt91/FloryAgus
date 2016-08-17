@@ -1,9 +1,12 @@
 package grownapps.casamientofloryagus;
 
 import android.content.Intent;
-import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -15,43 +18,87 @@ import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.facebook.share.model.ShareLinkContent;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class LoginActivity extends AppCompatActivity {
-    private CallbackManager callbackManager;
+public class LoginFragment extends Fragment {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        setContentView(R.layout.activity_login);
+    public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_login, container, false);
 
+        if (isLoggedIn()) {
+            Intent intent = new Intent(getContext(), MainActivity.class);
+            startActivity(intent);
+        } else {
+        }
+
+        FacebookSdk.sdkInitialize(getContext());
         callbackManager = CallbackManager.Factory.create();
 
-        LoginButton loginButton = (LoginButton)findViewById(R.id.login_button);
-        //loginButton.setReadPermissions("email");
+        LoginButton loginButton = (LoginButton) view.findViewById(R.id.login_button);
+        loginButton.setReadPermissions("email");
+        loginButton.setFragment(this);
+        // Other app specific specialization
 
-    // Callback registration
+        // Callback registration
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 request();
-        }
+            }
 
-        @Override
-        public void onCancel() {
-            // App code
-        }
+            @Override
+            public void onCancel() {
+                // App code
+            }
 
-        @Override
-        public void onError(FacebookException exception) {
-            // App code
-        }
-    });
-}
+            @Override
+            public void onError(FacebookException exception) {
+                // App code
+            }
+        });
+        return view;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private CallbackManager callbackManager;
+
+    public boolean isLoggedIn() {
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        return accessToken != null;
+    }
+
+
+
+
     private void request() {
         GraphRequest request = new GraphRequest(
                 AccessToken.getCurrentAccessToken(),
@@ -82,18 +129,19 @@ public class LoginActivity extends AppCompatActivity {
         request.setParameters(parameters);
         request.executeAsync();
 
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(getContext(),MainActivity.class);
         //fijate si queres meterle algo al intent, como un bundle, o si con esto alcanza.
+        //Profile.getCurrentProfile().
         startActivity(intent);
 
         //tambien creo que tenes que cambiar el launcher una vez que el login es efectivo.
         //o eso ya esta? se guardan los datos?
         //a session le tengo que pedir get active session, para saber si ya esta logueado
-        //te manda a la main activity, no lalogin. eso se hace aca al principio de toddo, es un if.
+        //te manda a la main activity, no la login. eso se hace aca al principio de toddo, es un if.
         //el launcher es activity login facebook, no el main, eso esta bien.
     }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }

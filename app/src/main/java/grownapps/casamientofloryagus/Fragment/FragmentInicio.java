@@ -91,6 +91,7 @@ public class FragmentInicio extends android.support.v4.app.Fragment {
                 textViewMinutos.setText("" + TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) % (60));
                 textViewHoras.setText("" + TimeUnit.MILLISECONDS.toHours(millisUntilFinished) % (24));
                 textViewDias.setText("" + TimeUnit.MILLISECONDS.toDays(millisUntilFinished));
+            //ponele un FORMAT  esto, lo tenes declarado arriba.
             }
 
             @Override
